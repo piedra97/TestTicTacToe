@@ -8,6 +8,10 @@ public class Board {
         this.squares = squares;
     }
 
+    public Square[][] getSquares() {
+        return squares;
+    }
+
     public Square getSquare(Position position){
         return squares[position.getX()][position.getY()];
     }

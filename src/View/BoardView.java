@@ -1,5 +1,7 @@
 package View;
 
+import Controller.BoardController;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -29,5 +31,12 @@ public class BoardView extends JFrame{
         contentPane.add(buttonsPanel, BorderLayout.CENTER);
     }
 
+    public void setButtonActionListener(String position, BoardController boardController) {
+        for (int i = 0; i < 9; i++) {
+            this.squares[i].setActionCommand(position);
+            this.squares[i].addActionListener(boardController);
+        }
     }
+
+}
 
