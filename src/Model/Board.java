@@ -16,16 +16,15 @@ public class Board {
         squares[position.getX()][position.getY()].setSymbol(symbol);
     }
 
-    public Boolean isFull(){
-        boolean isFull = true;
+    public boolean isFull(){
 
         for (int x = 0; x < 3; x++){
             for (int y = 0; y < 3; y++){
                 if (squares[x][y].getSymbol() == Symbol.E){
-                    isFull = false;
+                    return false;
                 }
             }
         }
-        return isFull;
+        return true;
     }
 }
