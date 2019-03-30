@@ -49,5 +49,17 @@ public class SquareTest {
         Assert.assertEquals(sq1.getSymbol(), Symbol.O);
     }
 
+    @Test
+    public void ifSymbolIsDifferentThanEAndWeSetSymbolEThenTheSquareSymbolIsTheSameAsBefore(){
+        //Arrange
+        Square sq1 = new Square(Symbol.O);
+
+        //Act
+        sq1.setSymbol(Symbol.E);
+
+        //Assertion
+        Assert.assertEquals(sq1.getSymbol(), Symbol.O);
+    }
+
 }
 
