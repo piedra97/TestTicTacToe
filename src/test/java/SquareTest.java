@@ -1,7 +1,8 @@
 import Model.Square;
 import Model.Symbol;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
+
 
 public class SquareTest {
     @Test
@@ -12,7 +13,7 @@ public class SquareTest {
                 //Act
                 Square square = new Square(symbol);
                 //Assertion
-                Assertions.fail("Symbol X doesn't throw a exception.");
+                Assert.fail("Symbol X doesn't throw a exception.");
             }catch(IllegalArgumentException ignored) {}
     }
 
@@ -24,7 +25,7 @@ public class SquareTest {
             //Act
             Square square = new Square(symbol);
             //Assertion
-            Assertions.fail("Symbol O doesn't throw a exception.");
+            Assert.fail("Symbol O doesn't throw a exception.");
         }catch(IllegalArgumentException ignored) {}
     }
 
@@ -35,7 +36,7 @@ public class SquareTest {
         //Act
         sq1.setSymbol(Symbol.X);
         //Assertion
-        Assertions.assertEquals(sq1.getSymbol(), Symbol.X);
+        Assert.assertEquals(sq1.getSymbol(), Symbol.X);
     }
 
     @Test
@@ -45,7 +46,7 @@ public class SquareTest {
         //Act
         sq1.setSymbol(Symbol.O);
         //Assertion
-        Assertions.assertEquals(sq1.getSymbol(), Symbol.O);
+        Assert.assertEquals(sq1.getSymbol(), Symbol.O);
     }
 
 }
