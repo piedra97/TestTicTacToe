@@ -67,4 +67,69 @@ public class BoardControllerTest {
         //Assert
         Assert.assertNotEquals(playerPos, boardController.playerPos);
     }
+
+    @Test
+    public void whenPlayerWinsTheMethodIsItAVictoryReturnsTrue(){
+        //Arrange
+        Square[][] squares = new Square[3][3];
+        Board board = mock(Board.class);
+        Player player1 = mock(Player.class);
+        Player player2 = mock(Player.class);
+
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                squares[i][j] = mock(Square.class);
+                if (i == j) {
+                    when(squares[i][j].getSymbol()).thenReturn(Symbol.X);
+                } else {
+                    when(squares[i][j].getSymbol()).thenReturn(Symbol.E);
+                }
+            }
+        }
+
+        when(board.getSquares()).thenReturn(squares);
+        when(player1.getSymbol()).thenReturn(Symbol.X);
+        when(player2.getSymbol()).thenReturn(Symbol.O);
+
+        BoardController boardController = new BoardController(board, new Player[] {player1, player2});
+
+        //Act
+        boolean result = boardController.isItAVictory();
+
+        //Assert
+        Assert.assertTrue("Test failed. Result is false.", result);
+    }
+
+
+    @Test
+    public void whenPlayerNotWinsTheMethodIsItAVictoryReturnsFalse(){
+        //Arrange
+        Square[][] squares = new Square[3][3];
+        Board board = mock(Board.class);
+        Player player1 = mock(Player.class);
+        Player player2 = mock(Player.class);
+
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                squares[i][j] = mock(Square.class);
+                if (i == j && i != 2) {
+                    when(squares[i][j].getSymbol()).thenReturn(Symbol.X);
+                } else {
+                    when(squares[i][j].getSymbol()).thenReturn(Symbol.E);
+                }
+            }
+        }
+
+        when(board.getSquares()).thenReturn(squares);
+        when(player1.getSymbol()).thenReturn(Symbol.X);
+        when(player2.getSymbol()).thenReturn(Symbol.O);
+
+        BoardController boardController = new BoardController(board, new Player[] {player1, player2});
+
+        //Act
+        boolean result = boardController.isItAVictory();
+
+        //Assert
+        Assert.assertFalse("Test failed. Result is true.", result);
+    }
 }
