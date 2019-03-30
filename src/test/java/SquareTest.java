@@ -5,27 +5,31 @@ import org.junit.jupiter.api.Test;
 
 public class SquareTest {
     @Test
-    public void whenClassSquareSymbolXIsCreatedCantSet(){
+    public void havingSquareWithSymbolXThrowsAnIllegalArgumentException(){
         //Arrange
-            Square sq1 = new Square(Symbol.X);
-        //Act
-            sq1.setSymbol(Symbol.O);
-        //Assertion
-            Assertions.assertEquals(sq1.getSymbol(), Symbol.X);
+            Symbol symbol = Symbol.X;
+            try {
+                //Act
+                Square square = new Square(symbol);
+                //Assertion
+                Assertions.fail("Symbol X doesn't throw a exception.");
+            }catch(IllegalArgumentException ignored) {}
     }
 
     @Test
-    public void whenClassSquareSymbolOIsCreatedCantSet(){
+    public void havingSquareWithSymbolOThrowsAnIllegalArgumentException(){
         //Arrange
-        Square sq1 = new Square(Symbol.O);
-        //Act
-        sq1.setSymbol(Symbol.X);
-        //Assertion
-        Assertions.assertEquals(sq1.getSymbol(), Symbol.O);
+        Symbol symbol = Symbol.O;
+        try {
+            //Act
+            Square square = new Square(symbol);
+            //Assertion
+            Assertions.fail("Symbol O doesn't throw a exception.");
+        }catch(IllegalArgumentException ignored) {}
     }
 
     @Test
-    public void whenClassSquareSymbolEIsCreatedCanSet(){
+    public void ifSymbolInSetSymbolIsXThenTheSquareSymbolIsX(){
         //Arrange
         Square sq1 = new Square(Symbol.E);
         //Act
@@ -33,5 +37,16 @@ public class SquareTest {
         //Assertion
         Assertions.assertEquals(sq1.getSymbol(), Symbol.X);
     }
+
+    @Test
+    public void ifSymbolInSetSymbolIsOThenTheSquareSymbolIsX(){
+        //Arrange
+        Square sq1 = new Square(Symbol.E);
+        //Act
+        sq1.setSymbol(Symbol.O);
+        //Assertion
+        Assertions.assertEquals(sq1.getSymbol(), Symbol.O);
+    }
+
 }
 

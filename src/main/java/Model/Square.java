@@ -4,6 +4,7 @@ public class Square {
     private Symbol symbol;
 
     public Square(Symbol symbol) {
+        if (symbol != Symbol.E) throw new IllegalArgumentException("The symbol cannot be different than E in the constructor");
         this.symbol = symbol;
     }
 
