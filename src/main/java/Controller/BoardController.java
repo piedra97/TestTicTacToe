@@ -8,9 +8,9 @@ import java.awt.event.ActionListener;
 public class BoardController implements ActionListener {
     private Board boardModel;
     private BoardView boardView;
-    private int playerPos;
+    public int playerPos;
     private Player[] players;
-    private int turn;
+    public int turn;
 
     public BoardController(Board boardModel, Player[] players){
         this.boardModel = boardModel;
@@ -18,7 +18,6 @@ public class BoardController implements ActionListener {
         boardView = new BoardView();
         boardView.setTurn(players[0].getSymbol());
         this.setListeners();
-
     }
 
     private void setListeners() {
